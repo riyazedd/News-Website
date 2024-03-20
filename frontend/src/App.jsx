@@ -6,12 +6,12 @@ import PageNotFound from "./layouts/PageNotFound";
 
 function App(){
     return(
-        <div className="container">
-            <h1>News Website</h1>
+        <div>
             <HeaderComponent />
-            <hr></hr>
+            <div className="container pt-5">
             <RouterComponent />
             <FooterComponent />
+            </div>
         </div>
     )
 }
