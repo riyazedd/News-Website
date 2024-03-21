@@ -6,6 +6,8 @@ import ContactComponent from './components/pages/ContactComponent'
 import NewsComponent from './components/pages/NewsComponent'
 import NewsDetailsComponent from './components/pages/NewsDetailsComponent'
 import PageNotFound from './layouts/PageNotFound'
+import AdminRouteMiddleware from './middleware/AdminRouteMiddleware'
+import Dashboard from './components/admin/Dashboard'
 
 export default function RouterComponent() {
   return (
@@ -16,6 +18,11 @@ export default function RouterComponent() {
         <Route path="/contact" element={<ContactComponent />} />
         <Route path="/news" element={<NewsComponent />} />
         <Route path="/news-details/:id" element={<NewsDetailsComponent />} />
+
+        <Route path='/admin' element={<AdminRouteMiddleware />}>
+          <Route path='/admin' element={<Dashboard />} />
+        </Route>
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
