@@ -8,6 +8,8 @@ import NewsDetailsComponent from './components/pages/NewsDetailsComponent'
 import PageNotFound from './layouts/PageNotFound'
 import AdminRouteMiddleware from './middleware/AdminRouteMiddleware'
 import Dashboard from './components/admin/Dashboard'
+import LoginComponent from './components/auth/LoginComponent'
+
 
 export default function RouterComponent() {
   return (
@@ -17,6 +19,7 @@ export default function RouterComponent() {
         <Route path="/about" element={<AboutComponent />} />
         <Route path="/contact" element={<ContactComponent />} />
         <Route path="/news" element={<NewsComponent />} />
+        <Route path="/login" element={<LoginComponent />} />
         <Route path="/news-details/:id" element={<NewsDetailsComponent />} />
 
         <Route path='/admin' element={<AdminRouteMiddleware />}>
