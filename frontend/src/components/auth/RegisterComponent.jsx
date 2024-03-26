@@ -33,7 +33,7 @@ export default function RegisterComponent() {
                     <div className="col-md-12">
                         <form onSubmit={handleSubmit(registerRecord)}>
                             <div className="form-group mb-2">
-                                <label> Name:
+                                <label> Name: &nbsp;
                                     <a className='text-danger'>
                                         {errors.name?.message && <span>{errors.name?.message}</span>}
                                     </a>
@@ -43,7 +43,7 @@ export default function RegisterComponent() {
                                     className="form-control" />
                             </div>
                             <div className="form-group mb-2">
-                                <label>Email address:
+                                <label>Email address: &nbsp;
                                     <a className='text-danger'>
                                         {errors.email?.message && <span>{errors.email?.message}</span>}
                                     </a>
@@ -53,7 +53,7 @@ export default function RegisterComponent() {
                                     className="form-control" />
                             </div>
                             <div className="form-group mb-2">
-                                <label>Password:
+                                <label>Password: &nbsp;
                                     <a className='text-danger'>
                                         {errors.password?.message && <span>{errors.password?.message}</span>}
                                     </a>
@@ -63,7 +63,7 @@ export default function RegisterComponent() {
                                     className="form-control" />
                             </div>
                             <div className="form-group mb-2">
-                                <label htmlFor="password_confirm">Password Confirm:
+                                <label htmlFor="password_confirm">Password Confirm: &nbsp;
                                     <a className='text-danger'>
                                         {errors.password_confirm?.message && <span>{errors.password_confirm?.message}</span>}
                                     </a>
@@ -71,7 +71,7 @@ export default function RegisterComponent() {
                                 <input type="password" name="password_confirm" {...register("password_confirm")} className="form-control" />
                             </div>
                             <div className="form-group mb-2">
-                                <label> Gender:
+                                <label> Gender: &nbsp;
                                     <a className='text-danger'>
                                         {errors.gender?.message && <span>{errors.gender?.message}</span>}
                                     </a>
@@ -84,7 +84,7 @@ export default function RegisterComponent() {
                                 </select>
                             </div>
                             <div className="form-group mb-2">
-                                <label> Gender:
+                                <label> Role:&nbsp;
                                     <a className='text-danger'>
                                         {errors.role?.message && <span>{errors.role?.message}</span>}
                                     </a>
@@ -98,7 +98,7 @@ export default function RegisterComponent() {
                             </div>
 
                             <div className="form-group mb-2">
-                                <label htmlFor="image">Image</label>
+                                <label htmlFor="image">Image &nbsp;</label>
                                 <input type="file" name="image" {...register("image")} className="form-control" />
 
                             </div>

@@ -6,7 +6,7 @@ import "../css/admin.css";
 export default function AdminRouteMiddleware() {
   return (
     <div className='admin'>
-        <div className='top-header'>
+        <div className='top-header bg-body-tertiary' bg='dark' data-bs-theme="dark">
           <div className='container-fluid'>
             <div className='row'>
               <div className='col-md-3'>
