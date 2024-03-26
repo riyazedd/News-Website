@@ -140,9 +140,9 @@ function HomeComponent() {
                             </div>
                         </div>
                     </div>
-                    <FooterComponent />
                 </div>
             </div>
+            <div className="container mb-2"><FooterComponent /></div>
 
         </div>
     )
