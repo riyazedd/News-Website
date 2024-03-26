@@ -20,6 +20,12 @@ export default function HeaderComponent() {
             <NavLink to="/news" activeClassName="active" className="nav-link" style={({ isActive }) => ({
                 textDecoration: isActive ? 'underline' :'none'
               })}>News</NavLink>
+            <NavLink to="/login" activeClassName="active" className="nav-link" style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' :'none'
+              })}>Login</NavLink>
+            <NavLink to="/register" activeClassName="active" className="nav-link" style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' :'none'
+              })}>Register</NavLink>
           </Nav>
     </Navbar>
   );
