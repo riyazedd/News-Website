@@ -1,14 +1,24 @@
+import User from "../models/User.js"
+
 class UserController{
     async index(req,res){
-        res.send("All Users")
+        const users=await User.find({});
+        res.status(200).json(users);
     }
 
     async show(req,res){
-        res.send("Single User")
+        let id= req.params.id;
+        const user= await User.findById(id);
+        res.status(200).json(user);
     }
 
     async store(req,res){
-        res.send("User Store")
+        let image="";
+        if(req.file){
+            image=req.file.filename;
+        }
+        const user=await User.create({...req.body,image});
+        res.status(200).json(user);
     }
 
     async update(req,res){
