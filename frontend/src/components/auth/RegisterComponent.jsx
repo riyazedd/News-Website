@@ -21,7 +21,11 @@ export default function RegisterComponent() {
 
     const registerRecord = (data) => {
         API.post('users',data).then(response=>{
-            console.log(response);
+            if(response.data.success){
+                alert("data was inserted");
+            }else{
+                alert("data was not inserted");
+            }
         }).catch(error=>{
             console.log(error);
         });
