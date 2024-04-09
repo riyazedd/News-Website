@@ -20,7 +20,13 @@ export default function RegisterComponent() {
     });
 
     const registerRecord = (data) => {
-        API.post('users',data).then(response=>{
+        let formData= new FormData();
+        formData.append('name',data.name);
+        formData.append('email',data.email);
+        formData.append('password',data);
+        formData.append('gender',data.gender);
+        formData.append('image',data.image[0]);
+        API.post('users',formData).then(response=>{
             if(response.data.success){
                 alert("data was inserted");
             }else{
