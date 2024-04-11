@@ -1,10 +1,24 @@
 import React,{useEffect, useState} from 'react'
 import API from '../../API'
 import Table from 'react-bootstrap/Table';
+import { useForm } from "react-hook-form";
+
 
 
 export default function CategoryComponent() {
     const [category,setCategory]=useState([]);
+    const [name,setName]=useState('');
+
+    const insertCategory=(e)=>{
+        e.preventDefault();
+        let data={name:name};
+        API.post('/category',data).then(res=>{
+            console.log(res.data);
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+
     useEffect(()=>{
         API.get('/category').then(res=>{
             setCategory(res.data);
@@ -15,7 +29,17 @@ export default function CategoryComponent() {
   return (
     <div>
         <h1>Category</h1>
-        <Table striped bordered hover>
+        <form onSubmit={insertCategory}>
+            <div className="form-group mb-2 mt-5">
+                <label htmlFor="">Category Name</label>
+                <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} />
+            </div>
+            <div className="form-group mb-2">
+                <button className="btn btn-success">Add Category</button>
+            </div>
+        </form>
+
+        <Table striped bordered hover className='mt-5'>
         <thead>
             <tr>
                 <th>S.N</th>
