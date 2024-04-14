@@ -18,7 +18,7 @@ class NewsController{
                 image=req.file.filename;
             }
             await News.create({...req.body,image});
-            res.status(200).json({message:'News created successfully'});
+            res.status(200).json({success:true});
         }catch(err){
             res.status(500).json({message:err.message})
         }

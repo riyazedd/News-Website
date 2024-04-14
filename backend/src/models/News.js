@@ -1,8 +1,12 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 
 const newsSchema = new mongoose.Schema({
-    categoryId:{
+    categoryId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
         required: true
@@ -16,16 +20,16 @@ const newsSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    image:{
+    image: {
         type: String,
     },
     summary: {
         type: String,
     },
-    description:{
+    description: {
         type: String,
     },
-    page_views:{
+    page_views: {
         type: Number,
         default: 0
     },
@@ -37,10 +41,20 @@ const newsSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-    
-},{
+
+}, {
     versionKey: false
 });
+
+newsSchema.methods.toJSON = function () {
+    var obj = this.toObject();
+    if (obj.image) {
+        obj.image = process.env.PUBLIC_URL + "/news/" + obj.image;
+    } else {
+        obj.image = process.env.PUBLIC_URL + "/icons/notFound.png";
+    }
+    return obj;
+}
 
 
 export default mongoose.model('News', newsSchema);

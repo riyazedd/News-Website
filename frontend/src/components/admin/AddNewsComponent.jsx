@@ -34,9 +34,13 @@ export default function AddNewsComponent() {
     data.append('summary', summary);
     data.append('description', description);
     data.append('image', image);
-   
+
     API.post('/news', data).then(res => {
-      console.log(res);
+      if (res.data.success) {
+        alert("data was inserted");
+      } else {
+        alert("data was not inserted");
+      }
     }).catch(err => {
       console.log(err);
     })
@@ -72,7 +76,7 @@ export default function AddNewsComponent() {
         </div>
         <div className="form-group mb-2 mt-2">
           <label htmlFor="">Image</label>
-          <input type="file" className="form-control" onChange={(e) => setImage(e.target.files[0])} />
+          <input type="file" className="form-control" name="image" onChange={(e) => setImage(e.target.files[0])} />
         </div>
         <div className="form-group mb-2">
           <button className="btn btn-success">Add Category</button>
