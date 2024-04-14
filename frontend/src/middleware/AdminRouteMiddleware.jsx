@@ -44,6 +44,9 @@ export default function AdminRouteMiddleware() {
                   <li className="nav-item">
                     <Link to="/admin/category" className="nav-link">Manage Category</Link>
                   </li>
+                  <li className="nav-item">
+                    <Link to="/admin/add-news" className="nav-link">Add News</Link>
+                  </li>
                 </ul>
               </div>
             </div>

@@ -1,7 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import API from '../../API'
 import Table from 'react-bootstrap/Table';
-import { useForm } from "react-hook-form";
 
 
 
@@ -14,18 +13,25 @@ export default function CategoryComponent() {
         let data={name:name};
         API.post('/category',data).then(res=>{
             console.log(res.data);
+            getCategory();
+            setName('');
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+
+    const getCategory=()=>{
+        API.get('/category').then(res=>{
+            setCategory(res.data);
         }).catch(err=>{
             console.log(err);
         })
     }
 
     useEffect(()=>{
-        API.get('/category').then(res=>{
-            setCategory(res.data);
-        }).catch(err=>{
-            console.log(err);
-        })
-    })
+        getCategory();
+    },[])
+    
   return (
     <div>
         <h1>Category</h1>
